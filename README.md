@@ -20,15 +20,15 @@ Following binary size and the numbers of external functions, the program can tak
 
 Before you run AutoResolv : 
 
-![Before](img/before.png)
+![Before](img/before.PNG)
 
 After :
 
-![After-Function Signature](img/after1.png) ![After-Comment](img/after2.png)
+![After-Function Signature](img/after1.PNG) ![After-Comment](img/after2.PNG)
 
 You can find a exemple in test_binary : 
 
-![Example Console output](img/console.png)
+![Example Console output](img/console.PNG)
 
 # TEST & SUPPORT
 
