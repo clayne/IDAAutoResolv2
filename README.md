@@ -16,9 +16,33 @@ That include :
 
 Following binary size and the numbers of external functions, the program can take some time.  
 
+# Demo
 
-#### Architecture supported : x86-64
-#### Binary Format Support : ELF
+Before you run AutoResolv : 
+
+![Before](img/before.png)
+
+After :
+
+![After-Function Signature](img/after1.png) ![After-Comment](img/after2.png)
+
+You can find a exemple in test_binary : 
+
+![Example Console output](img/console.png)
+
+# TEST & SUPPORT
+
+- This project has been tested on :  
+    - Windows : **OK**  
+    - Linux : **UNKNOW**
+    - Mac OS X : **NOT SUPPORTED**
+
+- Support : 
+    - Elf x64 : **OK**  
+    - i386 : **Unknow**  
+    - MIPS/POWERPC/ARM32/ARM64 : **UNKNOW**
+
+Feel free to test it on those platforms and create a bug report if there is problems
 
 # Requirements 
 
@@ -38,13 +62,12 @@ Exemple 2 : python autoresolv2.py -t test_binary\main -I "C:\Users\titip\OneDriv
 
 
 Optionnal arguments : 
-    -v --> verbose
-    -V --> Version
-    -S --> specify a custom dir of used libraries
-    -I --> Specify idat location
+    -v --> verbose  
+    -V --> Version  
+    -S --> specify a custom dir of used libraries  
+    -I --> Specify idat location  
     -D --> specify a ida64 DB that will hold saved data. 
 
-Only Windows and linux are supported
 
 # BUG
 

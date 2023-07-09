@@ -23,6 +23,8 @@ def process_functions(funs):
 
     return fun_matched_
                 
+CARACTER_FORBIDDEN = ["!","<",">", "="]
+
 def get_signature(ea):
     
     try:
@@ -33,7 +35,7 @@ def get_signature(ea):
         signature = str(cfunc.print_dcl())    
         signature_clean = ""
         for b in signature:
-            if ord(b) > 30 and ord(b) < 127:
+            if (ord(b) > 30 and ord(b) < 127 ) and b not in CARACTER_FORBIDDEN:
                 signature_clean += b
                 
         return signature_clean + ";"
@@ -45,11 +47,18 @@ def get_signature(ea):
 fun_matched = process_functions(fun_to_import)
 
 #TODO : EXPORT THE STRUCTURE IN THE ARGS THAT ARE DEFINED IN THE LIB
+#TODO : manage error cases
 
 export = {}
 for fun in fun_matched:
     signature = get_signature(fun_matched[fun])
-    export[fun] = signature
+    if signature == "error:decompile":
+        print("[AutoResolvIDATScripts] : Couldn't not decompile : {}".format(fun_matched[fun]))
+
+    elif signature == "error:not_found":
+        print("[AutoResolvIDATScripts] : Error during decompilation of : {}".format(fun_matched[fun]))
+    else:
+        export[fun] = signature
 
 print(f"[AutoResolvIDATScripts][MANAGERDATA]:{export}")
 
