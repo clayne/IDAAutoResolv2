@@ -37,12 +37,15 @@ def run_idat(cmd, logfile, platform, verbose=None):
 
     output.close()
 
-def craft_ida_command(idat: str, idb: str, script: str, type=None, do_not_scan=None):
+def craft_ida_command(idat: str, idb: str, script: str, type=None, do_not_scan=None, args=None):
 
     exec_name = os.path.basename(idb).split(".")[0]
     log_file = tempfile.mktemp(prefix=f"{exec_name}_", suffix=".log")
     
     cmd = f'"{idat}" -A -L"{log_file}" -S\"{script}\"'
+
+    if args:
+        cmd = f'"{idat}" -A -L"{log_file}" -S\"{script} \"{args}\" \"'
 
     if type:
         cmd += f" -T\"{type}\""
@@ -51,6 +54,7 @@ def craft_ida_command(idat: str, idb: str, script: str, type=None, do_not_scan=N
         cmd += " -a"
     
     cmd += f" {idb}"
+
 
 
     return (cmd, log_file)

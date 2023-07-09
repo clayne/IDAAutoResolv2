@@ -34,10 +34,13 @@ class Logger:
     _logger = None
 
     @staticmethod
-    def get_logger():
+    def get_logger(verbose=None):
         if Logger._logger is None:
             Logger._logger = logging.getLogger(__name__)
-            Logger._logger.setLevel(logging.DEBUG)  # Set the desired logging level
+            if verbose:
+                Logger._logger.setLevel(logging.DEBUG)  # Set the desired logging level
+            else:
+                Logger._logger.setLevel(logging.INFO)
             formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
             stream_handler = ColoredStreamHandler()
             stream_handler.setFormatter(formatter)

@@ -1,6 +1,7 @@
 import platform
 import os
 import lief
+import base64
 
 def get_platform():
     if platform.system() == 'Windows':
@@ -82,3 +83,7 @@ def matchExternals(externals, libs):
                     
     return resolved
 
+
+def encode(data):
+    raw = str(data).encode()
+    return base64.b64encode(raw)

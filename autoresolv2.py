@@ -3,7 +3,6 @@ from libautoresolv2.config import VERSION
 from libautoresolv2.manager import AutoResolv2Manager
 from libautoresolv2.util import neverun
 from libautoresolv2.log import Logger
-logger = Logger.get_logger()
 
 def main():
     parser = argparse.ArgumentParser(description='Autoresolv2')
@@ -14,7 +13,12 @@ def main():
     parser.add_argument('-S', '--libdir', help='Specify a custom directory for used libraries')
     args = parser.parse_args()
 
-    
+    if args.verbose:
+        logger = Logger.get_logger(verbose=True)
+
+    else:
+        logger = Logger.get_logger()
+
     logger.info(f"IDAAutoResolv2 Command Line {VERSION}")
 
     if neverun():

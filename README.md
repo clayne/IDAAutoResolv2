@@ -26,18 +26,23 @@ Following binary size and the numbers of external functions, the program can tak
 - IDA Pro > 7.0
 - IDAPython3
 - lief
+- hexrays decompiler
 
 
-# Installation
+# Usage
 
 ```bash
-python3 autoresolv2.py -t [your binary/your ida64 database] 
+Exemple 1 : python3 autoresolv2.py -t [your binary/your ida64 database] 
+Exemple 2 : python autoresolv2.py -t test_binary\main -I "C:\Users\titip\OneDrive\Desktop\secu\ida\idat64.exe" -v -D test_binary\main.i64
 ```
+
 
 Optionnal arguments : 
     -v --> verbose
     -V --> Version
     -S --> specify a custom dir of used libraries
+    -I --> Specify idat location
+    -D --> specify a ida64 DB that will hold saved data. 
 
 Only Windows and linux are supported
 
