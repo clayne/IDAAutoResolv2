@@ -1,0 +1,14 @@
+config.json.bak
+*.id0
+*.id1
+*.id2
+*.o
+*.nam
+*.til
+*.i64
+*.so
+*.log
+note
+*.pyc
+*.bin
+*.run_once
