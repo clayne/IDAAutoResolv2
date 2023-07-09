@@ -64,7 +64,7 @@ Exemple 2 : python autoresolv2.py -t test_binary\main -I "C:\Users\titip\OneDriv
 Optionnal arguments : 
     -v --> verbose  
     -V --> Version  
-    -S --> specify a custom dir of used libraries (Not yet added)
+    -S --> specify a custom dir of used libraries (Not yet added)  
     -I --> Specify idat location  
     -D --> specify a ida64 DB that will hold saved data. 
 
